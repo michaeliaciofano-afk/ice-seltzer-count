@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ice Seltzer Count</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Ice Seltzer Count</h1>
+    <div class="date-controls">
+      <button id="prevDay" title="Previous day">◀</button>
+      <input type="date" id="datePicker" />
+      <button id="nextDay" title="Next day">▶</button>
+      <button id="todayBtn" title="Jump to today">Today</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hidden add-item UI (only Seltzer by default). Remove class add-item--hidden to show. -->
+    <section class="add-item add-item--hidden">
+      <input id="newItemInput" type="text" placeholder="Add item (e.g., New Item)" />
+      <button id="addItemBtn">Add</button>
+    </section>
+
+    <section id="itemsContainer" class="items-container"></section>
+
+    <section class="bulk-actions">
+      <button id="resetDayBtn" class="danger">Reset counts for this day</button>
+    </section>
+
+    <section class="data-io">
+      <h2>Data</h2>
+      <div class="export-buttons">
+        <button id="exportJsonBtn">Export JSON</button>
+        <button id="exportCsvBtn">Export CSV</button>
+      </div>
+
+      <div class="import-area">
+        <label class="file-label">
+          Import JSON
+          <input type="file" id="importJsonInput" accept="application/json" />
+        </label>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <small>Counts are stored locally in your browser (per device). Export backups periodically.</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
