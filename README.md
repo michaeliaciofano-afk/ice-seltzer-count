@@ -1,25 +1,43 @@
 # Ice Seltzer Count
 
-A lightweight, browser-based daily tally app for tracking **Seltzer** usage. No backend required—data is saved locally in your browser (`localStorage`). Export or import your data anytime.
+A lightweight, browser-based daily tally app for tracking **Seltzer** usage.
+
+- Data is stored locally in your browser (`localStorage`)
+- Navigate days, view a monthly calendar, and see **daily**, **monthly**, and **all‑days** totals
+- **Share Link**: encodes the current data into the URL so others can open the exact same state
+- Export/Import data as **JSON** and export **CSV**
 
 ## Features
 - Preloaded item: **Seltzer**
 - Increment/decrement counts for the selected day
-- Navigate days (previous/next, jump to today)
-- Reset counts for the selected day
-- Export data as **JSON** or **CSV**
-- Import from **JSON**
+- **Totals**: Day total, **Month total**, **All Days total**
+- Calendar view: click a date to jump and edit; month total shown
+- **Share link** button copies a URL with `#data=...` containing the current state
+- Export JSON / CSV, Import JSON
 - Mobile-friendly design
 
-## Run locally
+## Running Locally
 Open `index.html` in your browser.
 
-## Host on GitHub Pages
-1. Push this project to a public repo named **Ice Seltzer Count** (GitHub may slug it as `Ice-Seltzer-Count`).
-2. In GitHub, go to **Settings → Pages**.
-3. Under **Branch**, select `main` and **/ (root)**, then **Save**.
-4. Your site will be live at `https://<your-username>.github.io/<repo-name>/`.
+## Deploy on GitHub Pages
+1. Push these files to your repo.
+2. In GitHub: **Settings → Pages**
+3. **Source**: `main` branch, **/ (root)`
+4. After ~30–60 seconds, your app will be live.
 
-## Notes
-- Data is device-specific. Use **Export JSON** to back up.
-- To add more items later, unhide the Add Item section in `styles.css` by removing `.add-item--hidden`.
+## Data Model
+```json
+{
+  "items": ["Seltzer"],
+  "tallies": {
+    "YYYY-MM-DD": { "Seltzer": 0 }
+  }
+}
+```
+
+## Share Link Notes
+- The app encodes JSON state in the URL **hash** (after `#`) as Base64.
+- Works best for small/medium datasets. If your URL gets too long, we can add compression or a tiny backend for short codes.
+
+## Add More Items (Optional)
+Unhide the Add Item section in `styles.css` by removing `.add-item--hidden`.
