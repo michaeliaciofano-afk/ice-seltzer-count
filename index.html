@@ -9,16 +9,35 @@
 <body>
   <header>
     <h1>Ice Seltzer Count</h1>
+
     <div class="date-controls">
       <button id="prevDay" title="Previous day">◀</button>
       <input type="date" id="datePicker" />
       <button id="nextDay" title="Next day">▶</button>
       <button id="todayBtn" title="Jump to today">Today</button>
+
+      <!-- Totals -->
+      <span id="dayTotalPill" class="total-pill" title="Total for selected day">Total: 0</span>
+      <span id="grandTotalPill" class="total-pill total-pill--grand" title="Total across all days">All Days: 0</span>
     </div>
   </header>
 
   <main>
-    <!-- Hidden add-item UI (only Seltzer by default). Remove class add-item--hidden to show. -->
+    <!-- Calendar view to pick dates -->
+    <section class="calendar">
+      <div class="calendar-header">
+        <button id="calPrev" title="Previous month">◀</button>
+        <div class="calendar-month-wrap">
+          <div id="calendarMonthLabel" class="calendar-month-label">Month YYYY</div>
+          <div id="calendarMonthTotal" class="calendar-month-total"></div>
+        </div>
+        <button id="calNext" title="Next month">▶</button>
+      </div>
+      <div class="calendar-grid" id="calendarGrid"><!-- filled by JS --></div>
+      <small class="calendar-note">Click a date to view/edit its counts.</small>
+    </section>
+
+    <!-- (Hidden) Add-item UI – available if you want to track more than Seltzer -->
     <section class="add-item add-item--hidden">
       <input id="newItemInput" type="text" placeholder="Add item (e.g., New Item)" />
       <button id="addItemBtn">Add</button>
